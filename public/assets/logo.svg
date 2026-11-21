@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-label="School logo">
+  <rect width="180" height="180" rx="38" fill="#0f766e"/>
+  <path d="M28 70 90 38l62 32-62 32L28 70Z" fill="#f8fafc"/>
+  <path d="M54 86v31c0 12 72 12 72 0V86L90 104 54 86Z" fill="#ccfbf1"/>
+  <path d="M139 77v42" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="139" cy="128" r="9" fill="#f59e0b"/>
+  <path d="M69 126c13 10 30 10 43 0" stroke="#0f766e" stroke-width="7" stroke-linecap="round"/>
+</svg>

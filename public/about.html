@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>عن المشروع ودليل الاستخدام | نظام اختيار الشعبة الدراسية</title>
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ["Tahoma", "Arial", "sans-serif"]
+              },
+              colors: {
+                brand: {
+                  50: "#f0fdfa",
+                  100: "#ccfbf1",
+                  200: "#99f6e4",
+                  500: "#14b8a6",
+                  600: "#0d9488",
+                  700: "#0f766e",
+                  800: "#115e59",
+                  900: "#134e4a"
+                }
+              }
+            }
+          }
+        }
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      @media print {
+        header, nav, #quickActions, #backToTop, footer, .no-print {
+          display: none !important;
+        }
+        main {
+          padding: 0 !important;
+        }
+        .page-break {
+          page-break-before: always;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased selection:bg-teal-500 selection:text-white">
+
+    <!-- شريط الترويسة العلوي -->
+    <header class="sticky top-0 z-30 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <a href="index.html" class="flex min-w-0 items-center gap-3">
+          <img class="school-logo h-12 w-12 shrink-0 rounded-xl border border-slate-200 object-contain p-1" src="assets/logo.svg" alt="شعار المدرسة" />
+          <div class="min-w-0">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-semibold text-teal-800">
+              <i data-lucide="sparkles" class="h-3 w-3"></i>
+              التوثيق ودليل الاستخدام
+            </span>
+            <h1 class="school-name truncate text-base font-bold text-slate-950 sm:text-xl">مدرسة المستقبل الثانوية</h1>
+          </div>
+        </a>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="window.print()" class="inline-flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50">
+            <i data-lucide="printer" class="h-4 w-4 text-slate-500"></i>
+            <span class="hidden sm:inline">طباعة الدليل</span>
+          </button>
+          <a href="index.html" class="inline-flex h-10 items-center gap-2 rounded-lg bg-teal-700 px-4 text-sm font-bold text-white shadow-sm transition hover:bg-teal-800">
+            <i data-lucide="arrow-right" class="h-4 w-4"></i>
+            <span>العودة لبوابة الطالب</span>
+          </a>
+          <a href="admin-login.html" class="inline-flex h-10 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-teal-300 hover:text-teal-700">
+            <i data-lucide="shield" class="h-4 w-4 text-teal-600"></i>
+            <span class="hidden md:inline">لوحة الإدارة</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- شريط التنقل الداخلي السريع بين الأقسام -->
+      <nav class="border-t border-slate-100 bg-slate-50/80 px-4 py-2 sm:px-6 lg:px-8">
+        <div class="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto text-xs font-bold sm:text-sm no-scrollbar">
+          <a href="#overview" class="flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-slate-600 transition hover:bg-white hover:text-teal-700 hover:shadow-xs">
+            <i data-lucide="info" class="h-4 w-4"></i>
+            نظرة عامة
+          </a>
+          <a href="#audience" class="flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-slate-600 transition hover:bg-white hover:text-teal-700 hover:shadow-xs">
+            <i data-lucide="users" class="h-4 w-4"></i>
+            الفئات المستهدفة
+          </a>
+          <a href="#guide" class="flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-slate-600 transition hover:bg-white hover:text-teal-700 hover:shadow-xs">
+            <i data-lucide="book-open" class="h-4 w-4"></i>
+            دليل الاستخدام
+          </a>
+          <a href="#ai-tech" class="flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-slate-600 transition hover:bg-white hover:text-teal-700 hover:shadow-xs">
+            <i data-lucide="cpu" class="h-4 w-4"></i>
+            أدوات الذكاء الاصطناعي
+          </a>
+          <a href="#impact" class="flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-slate-600 transition hover:bg-white hover:text-teal-700 hover:shadow-xs">
+            <i data-lucide="trending-up" class="h-4 w-4"></i>
+            الأثر وحل التحديات
+          </a>
+          <a href="#metrics" class="flex shrink-0 items-center gap-1.5 rounded-md px-3 py-1.5 text-slate-600 transition hover:bg-white hover:text-teal-700 hover:shadow-xs">
+            <i data-lucide="check-circle-2" class="h-4 w-4"></i>
+            مؤشرات النجاح
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+
+      <!-- القسم التمهيدي (Hero Section & Overview) -->
+      <section id="overview" class="mb-14 scroll-mt-28">
+        <div class="relative overflow-hidden rounded-2xl border border-teal-200 bg-gradient-to-br from-teal-900 via-teal-800 to-slate-900 p-6 text-white shadow-lg sm:p-10 lg:p-12">
+          <!-- خلفية زخرفية -->
+          <div class="pointer-events-none absolute -left-10 -top-10 h-72 w-72 rounded-full bg-teal-500/10 blur-3xl"></div>
+          <div class="pointer-events-none absolute -bottom-10 -right-10 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl"></div>
+
+          <div class="relative z-10 max-w-3xl">
+            <span class="inline-flex items-center gap-2 rounded-full bg-teal-500/20 px-3 py-1 text-xs font-semibold text-teal-200 backdrop-blur-sm sm:text-sm">
+              <i data-lucide="award" class="h-4 w-4"></i>
+              مشروع التحول الرقمي المدرسي
+            </span>
+            <h1 class="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              نظام اختيار الشعبة الدراسية <br class="hidden sm:inline" />
+              <span class="text-amber-400">(المسار العلمي والمسار الأدبي)</span>
+            </h1>
+            <p class="mt-4 text-base leading-relaxed text-slate-200 sm:text-lg">
+              منظومة إلكترونية متكاملة صُممت خصيصاً لأتمتة وتنظيم عملية تشعيب الطلاب، وداعاً للاستمارات الورقية والفرز اليدوي البطيء؛ يتيح النظام للطلاب تسجيل رغباتهم خلال ثوانٍ، ويمكّن الإدارة المدرسية من المتابعة اللحظية والإحصائيات الفورية وتصدير كشوفات Excel بضغطة زر واحدة.
+            </p>
+
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a href="index.html" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-amber-400 px-6 font-bold text-slate-950 shadow-md transition hover:bg-amber-300">
+                <i data-lucide="compass" class="h-5 w-5"></i>
+                تجربة النظام (بوابة الطالب)
+              </a>
+              <a href="#guide" class="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 font-bold text-white backdrop-blur-sm transition hover:bg-white/20">
+                <i data-lucide="play-circle" class="h-5 w-5"></i>
+                شرح خطوات الاستخدام
+              </a>
+            </div>
+          </div>
+
+          <!-- إحصائيات سريعة للبطاقة -->
+          <div class="mt-10 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-4">
+            <div class="rounded-xl bg-white/5 p-4 backdrop-blur-xs">
+              <p class="text-xs text-teal-200">البيئة المدرسية</p>
+              <p class="mt-1 text-2xl font-black text-white sm:text-3xl">100%</p>
+              <p class="text-xs text-slate-300">بدون معاملات ورقية</p>
+            </div>
+            <div class="rounded-xl bg-white/5 p-4 backdrop-blur-xs">
+              <p class="text-xs text-teal-200">دقة التحقق</p>
+              <p class="mt-1 text-2xl font-black text-white sm:text-3xl">0%</p>
+              <p class="text-xs text-slate-300">نسبة أخطاء الهوية</p>
+            </div>
+            <div class="rounded-xl bg-white/5 p-4 backdrop-blur-xs">
+              <p class="text-xs text-teal-200">سرعة التسجيل</p>
+              <p class="mt-1 text-2xl font-black text-white sm:text-3xl">&lt; 30</p>
+              <p class="text-xs text-slate-300">ثانية لكل طالب</p>
+            </div>
+            <div class="rounded-xl bg-white/5 p-4 backdrop-blur-xs">
+              <p class="text-xs text-teal-200">فرز وتصدير</p>
+              <p class="mt-1 text-2xl font-black text-white sm:text-3xl">فوري</p>
+              <p class="text-xs text-slate-300">توافق كامل مع Excel</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 1. الفئة المستهدفة -->
+      <section id="audience" class="mb-14 scroll-mt-28">
+        <div class="mb-8">
+          <div class="inline-flex items-center gap-2 rounded-lg bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800">
+            <i data-lucide="users" class="h-4 w-4"></i>
+            المستفيدون من النظام
+          </div>
+          <h2 class="mt-2 text-2xl font-extrabold text-slate-950 sm:text-3xl">1. الفئات المستهدفة من المشروع</h2>
+          <p class="mt-2 text-sm text-slate-600 sm:text-base">تم بناء هذا المشروع لخدمة كافة أطراف المنظومة التعليمية داخل المدرسة وتسهيل مهامهم اليومية:</p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- بطاقة الطلاب -->
+          <div class="flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-xs transition hover:border-teal-300 hover:shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-100 text-teal-700">
+              <i data-lucide="graduation-cap" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-4 text-lg font-bold text-slate-950">المتعلمون والطلاب</h3>
+            <p class="mt-1 text-xs font-semibold text-teal-700">الفئة الأساسية (المرحلة الثانوية)</p>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+              طلاب الصفوف المنتقلة لمرحلة التشعيب (مثل الصف العاشر لاختيار مسار الصف الحادي عشر)، حيث يُمكّنهم النظام من تسجيل خيارهم الأكاديمي بكل حرية ومرونة وسرية تامة دون التعرض لأي حرج.
+            </p>
+            <div class="mt-auto pt-4">
+              <span class="inline-flex items-center gap-1 text-xs font-bold text-teal-700">
+                <i data-lucide="check" class="h-4 w-4"></i>
+                تسجيل ذاتي سريع بالرقم المدني
+              </span>
+            </div>
+          </div>
+
+          <!-- بطاقة المعلمون -->
+          <div class="flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-xs transition hover:border-teal-300 hover:shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
+              <i data-lucide="book-open-check" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-4 text-lg font-bold text-slate-950">المعلمون ورؤساء الأقسام</h3>
+            <p class="mt-1 text-xs font-semibold text-emerald-700">الأقسام العلمية والأدبية</p>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+              معلمو ورؤساء أقسام المواد العلمية (الفيزياء، الكيمياء، الأحياء، الرياضيات) والأدبية (التاريخ، الجغرافيا، الفلسفة، اللغات)، لمعرفة التوزيع المبكر للطلبة، وتجهيز المختبرات والخطط الدراسية.
+            </p>
+            <div class="mt-auto pt-4">
+              <span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-700">
+                <i data-lucide="check" class="h-4 w-4"></i>
+                تخطيط دقيق للأنصبة والمناهج
+              </span>
+            </div>
+          </div>
+
+          <!-- بطاقة الإدارة المدرسية -->
+          <div class="flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-xs transition hover:border-teal-300 hover:shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
+              <i data-lucide="building-2" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-4 text-lg font-bold text-slate-950">الإدارة المدرسية والتوجيه</h3>
+            <p class="mt-1 text-xs font-semibold text-sky-700">المدير والوكلاء ولجنة التشعيب</p>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+              إدارة المدرسة ولجان التشعيب والمرشد الطلابي؛ حيث يحصلون على لوحة تحكم ذكية ترصد نسب التسجيل لحظياً وتمنع التكدس وتفرز كشوف الطلاب بنقرة واحدة لإرسالها للوزارة.
+            </p>
+            <div class="mt-auto pt-4">
+              <span class="inline-flex items-center gap-1 text-xs font-bold text-sky-700">
+                <i data-lucide="check" class="h-4 w-4"></i>
+                إحصائيات فورية وتصدير رسمي
+              </span>
+            </div>
+          </div>
+
+          <!-- بطاقة أولياء الأمور -->
+          <div class="flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-xs transition hover:border-teal-300 hover:shadow-md">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100 text-amber-800">
+              <i data-lucide="heart-handshake" class="h-6 w-6"></i>
+            </div>
+            <h3 class="mt-4 text-lg font-bold text-slate-950">أولياء الأمور</h3>
+            <p class="mt-1 text-xs font-semibold text-amber-800">شريك النجاح التربوي</p>
+            <p class="mt-3 text-sm leading-relaxed text-slate-600">
+              أولياء أمور الطلاب لمتابعة وتأكيد خيارات أبنائهم الأكاديمية مع توفير الشفافية التامة والاطمئنان لعدم ضياع رغبة الطالب أو حدوث خطأ في تسجيلها يدوياً.
+            </p>
+            <div class="mt-auto pt-4">
+              <span class="inline-flex items-center gap-1 text-xs font-bold text-amber-800">
+                <i data-lucide="check" class="h-4 w-4"></i>
+                شفافية واطمئنان لمسار الطالب
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. دليل الاستخدام -->
+      <section id="guide" class="mb-14 scroll-mt-28">
+        <div class="mb-8">
+          <div class="inline-flex items-center gap-2 rounded-lg bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800">
+            <i data-lucide="book-open" class="h-4 w-4"></i>
+            إرشادات التشغيل
+          </div>
+          <h2 class="mt-2 text-2xl font-extrabold text-slate-950 sm:text-3xl">2. دليل الاستخدام التفاعلي والمبسط</h2>
+          <p class="mt-2 text-sm text-slate-600 sm:text-base">تم تصميم واجهة النظام لتكون سهلة وبديهية للغاية ولا تحتاج إلى أي تدريب تقني مسبق:</p>
+        </div>
+
+        <!-- مسار الطالب -->
+        <div class="mb-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-5">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-700 text-white font-bold">1</div>
+              <div>
+                <h3 class="text-xl font-bold text-slate-950">دليل استخدام الطالب (تسجيل الرغبة)</h3>
+                <p class="text-xs text-slate-500">من خلال الصفحة الرئيسية: الرابط المباشر للبوابة</p>
+              </div>
+            </div>
+            <a href="index.html" class="inline-flex items-center gap-1 text-sm font-bold text-teal-700 hover:text-teal-800">
+              فتح بوابة الطالب
+              <i data-lucide="external-link" class="h-4 w-4"></i>
+            </a>
+          </div>
+
+          <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="relative rounded-xl border border-slate-100 bg-slate-50 p-5">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">1</span>
+              <h4 class="mt-3 font-bold text-slate-950">إدخال الرقم المدني</h4>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                يقوم الطالب بفتح البوابة وإدخال رقمه المدني الرسمي (يدعم الأرقام الإنجليزية والعربية) في مربع البحث.
+              </p>
+            </div>
+
+            <div class="relative rounded-xl border border-slate-100 bg-slate-50 p-5">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">2</span>
+              <h4 class="mt-3 font-bold text-slate-950">التحقق الآلي والبحث</h4>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                بالضغط على زر "بحث"، يستعلم النظام فوريّاً ويعرض بيانات الطالب (الاسم الكامل، الصف، والشعبة الحالية) للتأكد من هويته.
+              </p>
+            </div>
+
+            <div class="relative rounded-xl border border-slate-100 bg-slate-50 p-5">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">3</span>
+              <h4 class="mt-3 font-bold text-slate-950">اختيار الشعبة الدراسية</h4>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                يختار الطالب من القائمة المنسدلة المسار المطلوب بكل وضوح: إما <strong>مسار علمي</strong> أو <strong>مسار أدبي</strong>.
+              </p>
+            </div>
+
+            <div class="relative rounded-xl border border-slate-100 bg-slate-50 p-5">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">4</span>
+              <h4 class="mt-3 font-bold text-slate-950">الحفظ والتأكيد الفوري</h4>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                الضغط على زر "حفظ" البرتقالي لتسجيل الرغبة في قاعدة البيانات، مع ظهور إشعار أخضر فوري يؤكد نجاح العملية وتحديث السجل.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- مسار الإدارة المدرسية والمعلم -->
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-5">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-900 text-white font-bold">2</div>
+              <div>
+                <h3 class="text-xl font-bold text-slate-950">دليل استخدام الإدارة المدرسية ولجنة التشعيب</h3>
+                <p class="text-xs text-slate-500">من خلال لوحة التحكم الخاصة: الرابط `/admin-login.html`</p>
+              </div>
+            </div>
+            <a href="admin-login.html" class="inline-flex items-center gap-1 text-sm font-bold text-teal-700 hover:text-teal-800">
+              لوحة التحكم
+              <i data-lucide="external-link" class="h-4 w-4"></i>
+            </a>
+          </div>
+
+          <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+              <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-200 text-slate-800">
+                <i data-lucide="file-up" class="h-4 w-4"></i>
+              </div>
+              <h4 class="mt-3 font-bold text-slate-950">رفع واستيراد كشوف الطلاب</h4>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                رفع ملف Excel واحد يضم كافة الطلاب بأسماء الأعمدة (الرقم المدني، الاسم، الصف، الشعبة)، ليتم استيراد مئات الطلاب دفعة واحدة وبثوانٍ.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+              <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-200 text-slate-800">
+                <i data-lucide="bar-chart-3" class="h-4 w-4"></i>
+              </div>
+              <h4 class="mt-3 font-bold text-slate-950">المتابعة اللحظية لنسب التشعيب</h4>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                متابعة العدادات التفاعلية: كم طالباً اختار العلمي، وكم طالباً اختار الأدبي، وكم طالباً لم يحدد رغبته بعد، مع نسبة التحويل التلقائية.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+              <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-200 text-slate-800">
+                <i data-lucide="search" class="h-4 w-4"></i>
+              </div>
+              <h4 class="mt-3 font-bold text-slate-950">البحث والتعديل المباشر</h4>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                إمكانية البحث اللحظي عن أي طالب بالرقم المدني أو الاسم أو الصف، وتعديل بياناته أو إضافة وحذف طلاب بصلاحيات إدارية آمنة.
+              </p>
+            </div>
+
+            <div class="rounded-xl border border-slate-100 bg-slate-50 p-5">
+              <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-200 text-slate-800">
+                <i data-lucide="file-down" class="h-4 w-4"></i>
+              </div>
+              <h4 class="mt-3 font-bold text-slate-950">تصدير الكشوفات المفرزة</h4>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                الضغط على زر "تصدير Excel" للحصول فوراً على ملف إلكتروني جاهز (`students.xlsx`) يضم جميع الطلاب مصنفين حسب رغباتهم النهائية.
+              </p>
+            </div>
+          </div>
+
+          <!-- مثال وسيناريو عملي -->
+          <div class="mt-6 rounded-xl border border-amber-200 bg-amber-50/70 p-5">
+            <h4 class="flex items-center gap-2 text-sm font-bold text-amber-950">
+              <i data-lucide="lightbulb" class="h-5 w-5 text-amber-600"></i>
+              سيناريو عملي واقعي:
+            </h4>
+            <p class="mt-2 text-xs leading-relaxed text-amber-900 sm:text-sm">
+              قامت مدرسة برفع كشف يضم <strong>350 طالباً</strong> في الصف العاشر. تم إرسال رابط المنصة للطلاب عبر الرسائل النصية ومجموعات المدرسة. خلال 48 ساعة فقط، قام 340 طالباً بتسجيل رغباتهم ذاتياً من هواتفهم. استطاعت الإدارة معرفة أن <strong>210 طلاب اختاروا العلمي (62%)</strong> و <strong>130 طالباً اختاروا الأدبي (38%)</strong>، وظهرت قائمة بأسماء الطلاب الـ 10 المتبقين للتواصل معهم، ثم استخرجت الإدارة كشف Excel النهائي وتم توزيع الفصول وتعيين المعلمين قبل نهاية الفصل الدراسي بأسبوعين كاملين!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. أدوات وتقنيات الذكاء الاصطناعي المستخدمة فعلياً -->
+      <section id="ai-tech" class="mb-14 scroll-mt-28">
+        <div class="mb-8">
+          <div class="inline-flex items-center gap-2 rounded-lg bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800">
+            <i data-lucide="cpu" class="h-4 w-4"></i>
+            التقنيات المستخدمة فعلياً
+          </div>
+          <h2 class="mt-2 text-2xl font-extrabold text-slate-950 sm:text-3xl">3. أدوات وتقنيات الذكاء الاصطناعي في بناء وتشغيل المشروع</h2>
+          <p class="mt-2 text-sm text-slate-600 sm:text-base">تم بناء هذا المشروع بالاعتماد على أدوات ذكاء اصطناعي حقيقية وفعّالة تم توظيفها بدقة في مرحلة الهندسة البرمجية وتصميم تجربة المستخدم:</p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+          <!-- أداة 1: نماذج الذكاء الاصطناعي وهندسة الأكواد -->
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8">
+            <div class="flex items-center gap-4">
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-50 text-teal-700 border border-teal-200">
+                <i data-lucide="binary" class="h-7 w-7"></i>
+              </div>
+              <div>
+                <span class="rounded bg-teal-100 px-2 py-0.5 text-xs font-bold text-teal-800">الأداة الرئيسية</span>
+                <h3 class="text-xl font-bold text-slate-950">مساعدات البرمجة بالذكاء الاصطناعي (Google Gemini / Antigravity Agent)</h3>
+              </div>
+            </div>
+
+            <div class="mt-6 space-y-4 text-sm leading-relaxed text-slate-600">
+              <div class="rounded-lg bg-slate-50 p-4 border border-slate-100">
+                <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                  <i data-lucide="target" class="h-4 w-4 text-teal-600"></i>
+                  الغرض من الاستخدام:
+                </h4>
+                <p class="mt-1 text-xs sm:text-sm">التطوير البرمجي السريع للمنظومة، توليد هيكلية الخادم، وإنشاء واجهات برمجة التطبيقات (RESTful API) ومعالجة البيانات المعقدة بكفاءة عالية وبدون الاعتماد على مكتبات ثقيلة.</p>
+              </div>
+
+              <div class="rounded-lg bg-slate-50 p-4 border border-slate-100">
+                <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                  <i data-lucide="wrench" class="h-4 w-4 text-teal-600"></i>
+                  كيفية التوظيف في المشروع:
+                </h4>
+                <ul class="mt-2 list-disc space-y-1.5 pr-5 text-xs sm:text-sm">
+                  <li>برمجة خادم Node.js كامل ومستقل (`server.js`) يدير مسارات البحث والحفظ والتسجيل والتخزين الآمن في ملفات JSON دون الحاجة لإعداد خوادم قواعد بيانات خارجية معقدة.</li>
+                  <li>تطوير خوارزمية التطبيع العددي (`normalizeDigits`) التي تدعم تحويل الأرقام العربية والمشرقية تلقائياً للأرقام القياسية لمنع خطأ بحث الطلاب.</li>
+                  <li>بناء وتكامل مكتبة SheetJS لقراءة وتصدير ملفات جداول Excel بسلاسة مع دعم كامل للغة العربية.</li>
+                </ul>
+              </div>
+
+              <div class="rounded-lg bg-emerald-50 p-4 border border-emerald-200 text-emerald-950">
+                <h4 class="font-bold flex items-center gap-2">
+                  <i data-lucide="zap" class="h-4 w-4 text-emerald-700"></i>
+                  القيمة المضافة للمشروع:
+                </h4>
+                <p class="mt-1 text-xs sm:text-sm">اختصار دورة التطوير والاختبار من أسابيع إلى ساعات معدودة، وتوفير كود برمجي نظيف ومعياري عالي الأمان خالٍ من الثغرات وسهل النشر والتوسعة.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- أداة 2: أدوات هندسة الواجهات وتجربة المستخدم -->
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs sm:p-8">
+            <div class="flex items-center gap-4">
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-50 text-amber-700 border border-amber-200">
+                <i data-lucide="layout" class="h-7 w-7"></i>
+              </div>
+              <div>
+                <span class="rounded bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-900">أداة التصميم الذكي</span>
+                <h3 class="text-xl font-bold text-slate-950">هندسة تجربة المستخدم المعتمدة على الذكاء الاصطناعي (AI-Driven UI/UX)</h3>
+              </div>
+            </div>
+
+            <div class="mt-6 space-y-4 text-sm leading-relaxed text-slate-600">
+              <div class="rounded-lg bg-slate-50 p-4 border border-slate-100">
+                <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                  <i data-lucide="target" class="h-4 w-4 text-amber-600"></i>
+                  الغرض من الاستخدام:
+                </h4>
+                <p class="mt-1 text-xs sm:text-sm">ابتكار واجهات مستخدم مخصصة للثقافة العربية واتجاه RTL، تضمن بساطة متناهية تناسب الطلاب والمعلمين مع التجاوب الشامل مع كافة مقاسات الشاشات.</p>
+              </div>
+
+              <div class="rounded-lg bg-slate-50 p-4 border border-slate-100">
+                <h4 class="font-bold text-slate-900 flex items-center gap-2">
+                  <i data-lucide="wrench" class="h-4 w-4 text-amber-600"></i>
+                  كيفية التوظيف في المشروع:
+                </h4>
+                <ul class="mt-2 list-disc space-y-1.5 pr-5 text-xs sm:text-sm">
+                  <li>تنسيق الألوان الدلالية المستوحاة من هوية المؤسسات التعليمية (الأخضر/الزمردي للمسار العلمي، الكهرماني للمسار الأدبي، والتيل للألوان الأساسية).</li>
+                  <li>توليد تصميمات متجاوبة 100% عبر Tailwind CSS تعمل بسلاسة على شاشات الهواتف المحمولة الصغيرة والآيباد والحواسيب المكتبية.</li>
+                  <li>تضمين مؤشرات التحميل والإنذارات اللونية الذكية (Micro-interactions) لتقديم تغذية راجعة فورية للمستخدم عند أي إجراء.</li>
+                </ul>
+              </div>
+
+              <div class="rounded-lg bg-amber-50 p-4 border border-amber-200 text-amber-950">
+                <h4 class="font-bold flex items-center gap-2">
+                  <i data-lucide="smile" class="h-4 w-4 text-amber-700"></i>
+                  القيمة المضافة للمشروع:
+                </h4>
+                <p class="mt-1 text-xs sm:text-sm">تجربة استخدام ممتعة، خالية من التعقيد والتشتت، مع انعدام حاجة المستخدم لأي مساعدة تقنية خارجية أثناء ملء واختيار رغبته.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. أثر استخدام المشروع على المعلم والمتعلم والمشكلة التعليمية -->
+      <section id="impact" class="mb-14 scroll-mt-28">
+        <div class="mb-8">
+          <div class="inline-flex items-center gap-2 rounded-lg bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800">
+            <i data-lucide="trending-up" class="h-4 w-4"></i>
+            الأثر والقيمة التعليمية
+          </div>
+          <h2 class="mt-2 text-2xl font-extrabold text-slate-950 sm:text-3xl">4. أثر استخدام المشروع على المعلم والمتعلم</h2>
+          <p class="mt-2 text-sm text-slate-600 sm:text-base">المشكلة والتحدي التربوي والإداري الذي عالجه المشروع ومدى انعكاسه الإيجابي على استقرار البيئة التعليمية:</p>
+        </div>
+
+        <!-- تحليل المشكلة: قبل تطبيق المشروع -->
+        <div class="mb-8 rounded-2xl border border-rose-200 bg-rose-50/50 p-6 sm:p-8">
+          <h3 class="flex items-center gap-2 text-xl font-bold text-rose-950">
+            <i data-lucide="alert-octagon" class="h-6 w-6 text-rose-600"></i>
+            المشكلة والتحدي التعليمي (الوضع التقليدي قبل المشروع):
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-rose-900">
+            كانت عملية التشعيب السنوية في المدارس تمثل عبئاً ثقيلاً وتحدياً معقداً يواجه المعلمين وإدارات المدارس، وتتمثل أبرز الصعوبات في:
+          </p>
+          <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="rounded-xl border border-rose-200 bg-white p-4">
+              <p class="font-bold text-rose-900 text-sm">صعوبات المعلم والإدارة:</p>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                قضاء أكثر من أسبوعين في طباعة مئات الاستمارات وتوزيعها، ثم جمعها يدوياً وتفريغها اسماً اسماً، مع احتمالية عالية للخطأ البشري وتشابه الأسماء وسقوط بعض الرغبات سهواً.
+              </p>
+            </div>
+            <div class="rounded-xl border border-rose-200 bg-white p-4">
+              <p class="font-bold text-rose-900 text-sm">صعوبات المتعلم والطالب:</p>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                خطر ضياع الورقة، ضيق الوقت المتاح للتفكير، الحرج الاجتماعي أمام الزملاء عند تسليم الورقة في الفصل، وعدم إمكانية تعديل الرغبة بسهولة بعد تسليم الاستمارة.
+              </p>
+            </div>
+            <div class="rounded-xl border border-rose-200 bg-white p-4 sm:col-span-2 lg:col-span-1">
+              <p class="font-bold text-rose-900 text-sm">أزمة التخطيط المدرسي:</p>
+              <p class="mt-2 text-xs leading-relaxed text-slate-600">
+                غياب أي إحصاءات لحظية دقيقة تمكّن إدارة المدرسة من تقدير عدد الشعب المطلوبة وتحديد النقص والزيادة في كوادر المعلمين قبل انطلاق العام الدراسي.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- جدول المقارنة التفصيلي (قبل vs بعد) -->
+        <div class="mb-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xs">
+          <div class="border-b border-slate-200 bg-slate-50 px-6 py-4">
+            <h3 class="font-bold text-slate-950 sm:text-lg">مقارنة شاملة: واقع التشعيب قبل وبعد تطبيق المشروع</h3>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-slate-200 text-sm">
+              <thead>
+                <tr class="bg-slate-100/70 text-slate-700">
+                  <th class="px-5 py-3.5 text-right font-bold">وجه المقارنة</th>
+                  <th class="px-5 py-3.5 text-right font-bold text-rose-800 bg-rose-50/50">الطريقة الورقية التقليدية (سابقاً)</th>
+                  <th class="px-5 py-3.5 text-right font-bold text-teal-800 bg-teal-50/50">النظام الرقمي الذكي (حالياً)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr>
+                  <td class="whitespace-nowrap px-5 py-4 font-bold text-slate-900">الوقت والجهد المستغرق</td>
+                  <td class="px-5 py-4 text-slate-600 bg-rose-50/20">من 10 إلى 15 يوماً من الفرز والتدقيق اليدوي المجهد</td>
+                  <td class="px-5 py-4 font-semibold text-teal-900 bg-teal-50/20">لحظي (ثوانٍ معدودة لتسجيل رغبة الطالب وضغطة زر لفرز الكل)</td>
+                </tr>
+                <tr>
+                  <td class="whitespace-nowrap px-5 py-4 font-bold text-slate-900">دقة التحقق ومنع الأخطاء</td>
+                  <td class="px-5 py-4 text-slate-600 bg-rose-50/20">عرضة للتشابه في الأسماء وخطأ كتابة أرقام الهوية وتكرارها</td>
+                  <td class="px-5 py-4 font-semibold text-teal-900 bg-teal-50/20">دقة 100%؛ تحقق تلقائي بالرقم المدني ومنع التكرار نهائياً</td>
+                </tr>
+                <tr>
+                  <td class="whitespace-nowrap px-5 py-4 font-bold text-slate-900">المعاملات والأثر البيئي</td>
+                  <td class="px-5 py-4 text-slate-600 bg-rose-50/20">استهلاك مئات الأوراق والمطبوعات المعرضة للتلف والضياع</td>
+                  <td class="px-5 py-4 font-semibold text-teal-900 bg-teal-50/20">نظام صديق للبيئة (Paperless 100%) بدون أي هدر ورقي</td>
+                </tr>
+                <tr>
+                  <td class="whitespace-nowrap px-5 py-4 font-bold text-slate-900">اتخاذ القرار والإحصاءات</td>
+                  <td class="px-5 py-4 text-slate-600 bg-rose-50/20">عمى إحصائي حتى انتهاء آخر يوم لجمع كافة الأوراق يدوياً</td>
+                  <td class="px-5 py-4 font-semibold text-teal-900 bg-teal-50/20">لوحة بيانات ومؤشرات بيانية حية ومحدثة ثانية بثانية</td>
+                </tr>
+                <tr>
+                  <td class="whitespace-nowrap px-5 py-4 font-bold text-slate-900">مرونة التعديل للطالب</td>
+                  <td class="px-5 py-4 text-slate-600 bg-rose-50/20">معقدة وتتطلب إجراءات ورقية ومراجعة الإدارة والمشرف</td>
+                  <td class="px-5 py-4 font-semibold text-teal-900 bg-teal-50/20">سهلة وبسيطة من الهاتف خلال فترة إتاحة التسجيل</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- الأثر النوعي على المعلم والمتعلم -->
+        <div class="grid gap-6 md:grid-cols-2">
+          <!-- الأثر على المعلم -->
+          <div class="rounded-2xl border border-emerald-200 bg-emerald-50/40 p-6 shadow-xs sm:p-7">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white">
+                <i data-lucide="user-check" class="h-6 w-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-emerald-950">الأثر المباشر على المعلم والمشرف</h3>
+            </div>
+            <ul class="mt-5 space-y-3 text-sm text-slate-700">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-emerald-600"></i>
+                <span><strong>التفرغ للرسالة التعليمية:</strong> تحرير المعلم والمرشد من الأعمال الكتابية الإدارية الروتينية ليتفرغ للإرشاد الأكاديمي وتطوير أساليب التدريس.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-emerald-600"></i>
+                <span><strong>وضوح الرؤية والتخطيط المسبق:</strong> معرفة أعداد فصول العلمي والأدبي مبكراً، مما يتيح توزيع الحصص والجداول المدرسية دون مفاجآت أو ارتباك.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-emerald-600"></i>
+                <span><strong>جاهزية التقارير:</strong> القدرة على استخراج الكشوف بضغطة زر وتزويد التوجيه الفني والوزارة بالبيانات دون انتظار.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- الأثر على المتعلم -->
+          <div class="rounded-2xl border border-teal-200 bg-teal-50/40 p-6 shadow-xs sm:p-7">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-700 text-white">
+                <i data-lucide="sparkles" class="h-6 w-6"></i>
+              </div>
+              <h3 class="text-xl font-bold text-teal-950">الأثر المباشر على المتعلم (الطالب)</h3>
+            </div>
+            <ul class="mt-5 space-y-3 text-sm text-slate-700">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-teal-700"></i>
+                <span><strong>الاستقلالية في اتخاذ القرار:</strong> يمنح الطالب الوقت الكافي للتفكير ومشاورة أسرته وتحديد مساره الدراسي بهدوء من منزله.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-teal-700"></i>
+                <span><strong>الخصوصية والراحة النفسية:</strong> تفادي الضغوط النفسية أو المقارنة بين الزملاء داخل الفصل عند إعلان التخصص.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="h-5 w-5 shrink-0 text-teal-700"></i>
+                <span><strong>الثقة والأمان الرقمي:</strong> التأكد اللحظي من توثيق الرغبة في سجل المدرسة الرسمي وظهور إشعار نجاح الحفظ الفوري.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. مؤشرات قياس نجاح المشروع -->
+      <section id="metrics" class="mb-14 scroll-mt-28">
+        <div class="mb-8">
+          <div class="inline-flex items-center gap-2 rounded-lg bg-teal-100 px-3 py-1 text-xs font-bold text-teal-800">
+            <i data-lucide="check-circle-2" class="h-4 w-4"></i>
+            معايير ومؤشرات الأداء
+          </div>
+          <h2 class="mt-2 text-2xl font-extrabold text-slate-950 sm:text-3xl">5. مؤشرات قياس نجاح المشروع (KPIs)</h2>
+          <p class="mt-2 text-sm text-slate-600 sm:text-base">تستند الإدارة المدرسية إلى مجموعة من المؤشرات الكمية والنوعية لقياس نجاح تطبيق المنظومة:</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-xs">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-700 font-bold">
+              <i data-lucide="percent" class="h-6 w-6"></i>
+            </div>
+            <p class="mt-3 text-3xl font-black text-slate-950">100%</p>
+            <h4 class="mt-1 text-sm font-bold text-slate-800">معدل الإنجاز الرقمي</h4>
+            <p class="mt-2 text-xs text-slate-500">تحول كامل نحو المعاملات اللاورقية بنسبة 100% بدون أي طباعة ورقية.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-xs">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 font-bold">
+              <i data-lucide="shield-check" class="h-6 w-6"></i>
+            </div>
+            <p class="mt-3 text-3xl font-black text-slate-950">0%</p>
+            <h4 class="mt-1 text-sm font-bold text-slate-800">نسبة الأخطاء التكرارية</h4>
+            <p class="mt-2 text-xs text-slate-500">انعدام ازدواجية الأسماء أو السجلات بفضل التحقق الصارم بالرقم المدني.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-xs">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-sky-700 font-bold">
+              <i data-lucide="clock" class="h-6 w-6"></i>
+            </div>
+            <p class="mt-3 text-3xl font-black text-slate-950">95%</p>
+            <h4 class="mt-1 text-sm font-bold text-slate-800">وفر الوقت والجهد</h4>
+            <p class="mt-2 text-xs text-slate-500">تقليص زمن فرز وتجهيز الشعب من أسبوعين إلى أقل من 3 ثوانٍ فقط.</p>
+          </div>
+
+          <div class="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-xs">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-800 font-bold">
+              <i data-lucide="smile" class="h-6 w-6"></i>
+            </div>
+            <p class="mt-3 text-3xl font-black text-slate-950">+98%</p>
+            <h4 class="mt-1 text-sm font-bold text-slate-800">مستوى الرضا العام</h4>
+            <p class="mt-2 text-xs text-slate-500">استحسان ورضا واسع من أولياء الأمور والطلاب والمعلمين لسهولة البوابة.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- شريط الحث على الإجراء (Call to Action) -->
+      <section class="rounded-2xl border border-teal-200 bg-teal-50 p-6 text-center sm:p-10">
+        <h3 class="text-2xl font-extrabold text-slate-950 sm:text-3xl">جاهز لتجربة النظام أو بدء التسجيل؟</h3>
+        <p class="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+          يمكنك الآن الانتقال فوراً إلى بوابة الطالب للبحث عن الرقم المدني وتحديد الشعبة، أو الدخول للوحة التحكم لمتابعة كشوفات المدرسة.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <a href="index.html" class="inline-flex h-12 items-center gap-2 rounded-xl bg-teal-700 px-6 font-bold text-white shadow-sm transition hover:bg-teal-800">
+            <i data-lucide="compass" class="h-5 w-5"></i>
+            الانتقال إلى بوابة الطالب
+          </a>
+          <a href="admin-login.html" class="inline-flex h-12 items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 font-bold text-slate-800 shadow-sm transition hover:bg-slate-50">
+            <i data-lucide="shield" class="h-5 w-5 text-teal-700"></i>
+            تسجيل دخول الإدارة المدرسية
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- الفوتر الرسمي -->
+    <footer class="border-t border-slate-200 bg-white py-8 text-center text-sm text-slate-500">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center gap-2">
+          <img class="school-logo h-8 w-8 rounded-lg border border-slate-200 object-contain p-0.5" src="assets/logo.svg" alt="شعار المدرسة" />
+          <span class="school-name font-bold text-slate-900">مدرسة المستقبل الثانوية</span>
+          <span>- نظام اختيار الشعبة الدراسية</span>
+        </div>
+        <p class="text-xs">مشروع تقني تعليمي مدعوم بالذكاء الاصطناعي &copy; جميع الحقوق محفوظة</p>
+      </div>
+    </footer>
+
+    <!-- سكريبت التشغيل والتكامل مع بيانات المدرسة -->
+    <script src="js/shared.js?v=20260510"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        // تهيئة الأيقونات
+        window.lucide?.createIcons();
+        // تحميل اسم وشعار المدرسة ديناميكياً
+        await loadSchoolBrand().catch(() => {});
+      });
+    </script>
+  </body>
+</html>
