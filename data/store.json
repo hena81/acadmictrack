@@ -3318,8 +3318,8 @@
   "users": [
     {
       "id": "usr_admin",
-      "username": "281012006649",
-      "password": "Aa123456",
+      "username": "admin",
+      "password": "admin123",
       "fullName": "مدير النظام",
       "role": "admin",
       "createdAt": "2026-05-09T00:00:00.000Z",
