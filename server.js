@@ -506,6 +506,10 @@ async function routeApi(req, res) {
 }
 
 const server = http.createServer((req, res) => {
+  if (req.url === "/healthz" || req.url === "/health") {
+    sendJson(res, 200, { status: "ok", app: "acadmictrack" });
+    return;
+  }
   if (req.url.startsWith("/api/")) {
     routeApi(req, res);
     return;
